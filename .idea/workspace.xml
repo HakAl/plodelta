@@ -17,6 +17,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -31,6 +34,7 @@
     "Node.js.CSVInput.js.executor": "Run",
     "Node.js.index.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "<unknown>",
     "last_opened_file_path": "C:/Users/anyth/WebstormProjects/plodelta",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -57,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739271240894</updated>
       <workItem from="1739271242268" duration="2329000" />
-      <workItem from="1739279914753" duration="15328000" />
+      <workItem from="1739279914753" duration="16141000" />
     </task>
     <servers />
   </component>
