@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/plodelta/static/css/main.1f77971e.css",
-    "main.js": "/plodelta/static/js/main.b2a78559.js",
+    "main.js": "/plodelta/static/js/main.483f6f0a.js",
     "index.html": "/plodelta/index.html",
     "main.1f77971e.css.map": "/plodelta/static/css/main.1f77971e.css.map",
-    "main.b2a78559.js.map": "/plodelta/static/js/main.b2a78559.js.map"
+    "main.483f6f0a.js.map": "/plodelta/static/js/main.483f6f0a.js.map"
   },
   "entrypoints": [
     "static/css/main.1f77971e.css",
-    "static/js/main.b2a78559.js"
+    "static/js/main.483f6f0a.js"
   ]
 }
