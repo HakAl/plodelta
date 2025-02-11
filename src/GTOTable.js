@@ -2,7 +2,7 @@ import {Fragment} from "react";
 import {GTO_PREFLOP_KEYS, GTO_PREFLOP_VALUES} from "./appData";
 
 const isTenPercentOff = (gto, delta) => {
-    return  ((delta / gto) * 100).toFixed() >= 10;
+    return  Math.abs(((delta / gto) * 100)).toFixed() >= 10;
 }
 
 function GTOTable({title, playerValues}) {
