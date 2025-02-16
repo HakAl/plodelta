@@ -1,29 +1,27 @@
 import {Fragment} from "react";
-import {GTO_PREFLOP_KEYS, GTO_PREFLOP_VALUES} from "./appData";
+import {GTO_PREFLOP_KEYS} from "./appData";
 
 const isTenPercentOff = (gto, delta) => {
     return  Math.abs(((delta / gto) * 100)).toFixed() >= 10;
 }
 
-function GTOTable({title, playerValues}) {
+function GTOTable({title, gtoValues, playerValues}) {
     return (
         <Fragment>
             <table className="styled-table">
-                <thead><tr><th>{title}</th><th>GTO</th><th>YOU</th><th>Δ</th></tr></thead>
+                <thead><tr><th>{title}</th><th>GTO</th><th>YOU</th><th>&#916;</th></tr></thead>
                 <tbody>
                 {GTO_PREFLOP_KEYS.map((title, i) => {
                         return <tr key={i}>
                             <td><b>{title}</b></td>
-                            <td>{GTO_PREFLOP_VALUES[i]}</td>
-                            {playerValues && <td >{playerValues[i]}</td>
-                            }
+                            <td>{gtoValues[i]}</td>
+                            {playerValues && <td >{playerValues[i]}</td>}
                             {playerValues &&
-                                <td className={isTenPercentOff(GTO_PREFLOP_VALUES[i], (playerValues[i] - GTO_PREFLOP_VALUES[i]).toFixed(1))
+                                <td className={isTenPercentOff(gtoValues[i], (playerValues[i] - gtoValues[i]).toFixed(1))
                                     ? 'bad' : 'good'}>
-                                    {(playerValues[i] - GTO_PREFLOP_VALUES[i]).toFixed(1)}
+                                    {(playerValues[i] - gtoValues[i]).toFixed(1)}
                                 </td>
                             }
-
                         </tr>;
                     }
                 )}

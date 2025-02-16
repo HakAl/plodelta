@@ -1,6 +1,6 @@
 import {Fragment, useState} from "react";
 import Papa from "papaparse";
-import {GTO_PREFLOP_KEYS} from "./appData";
+import {GTO_MIDSTAKES_PREFLOP_VALUES, GTO_PREFLOP_KEYS} from "./appData";
 import GTOTable from "./GTOTable";
 
 function CSVInput() {
@@ -57,13 +57,13 @@ function CSVInput() {
     const preflopTableProps = {
         playerValues,
         title: "Preflop Statistics",
+        gtoValues: GTO_MIDSTAKES_PREFLOP_VALUES
     }
 
     return (
         <Fragment>
             <input {...inputProps} />
             <GTOTable {...preflopTableProps} />
-            {/*{playerValues && <GTOTable {...preflopTableProps} />}*/}
         </Fragment>
     );
 }

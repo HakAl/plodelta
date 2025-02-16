@@ -1,5 +1,4 @@
-
-export const GTO_PREFLOP_VALUES =[
+export const GTO_MIDSTAKES_PREFLOP_VALUES =[
     27,
     19,
     7.5,
@@ -46,5 +45,4 @@ export const GTO_PREFLOP_KEYS = [
         "BTN Cold Call",
         "BTN 3Bet vs CO",
         "BTN Fold to 4Bet IP"
-
     ];
