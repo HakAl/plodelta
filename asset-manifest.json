@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/plodelta/static/css/main.6b4beded.css",
-    "main.js": "/plodelta/static/js/main.acffa6d3.js",
+    "main.js": "/plodelta/static/js/main.69ac4b1d.js",
     "index.html": "/plodelta/index.html",
     "main.6b4beded.css.map": "/plodelta/static/css/main.6b4beded.css.map",
-    "main.acffa6d3.js.map": "/plodelta/static/js/main.acffa6d3.js.map"
+    "main.69ac4b1d.js.map": "/plodelta/static/js/main.69ac4b1d.js.map"
   },
   "entrypoints": [
     "static/css/main.6b4beded.css",
-    "static/js/main.acffa6d3.js"
+    "static/js/main.69ac4b1d.js"
   ]
 }
