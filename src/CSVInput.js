@@ -1,8 +1,8 @@
 import {Fragment, useState} from "react";
 import Papa from "papaparse";
 import {
-    GTO_MIDSTAKES_PREFLOP_VALUES,
-    GTO_POSTFLOP_AS_VALUES,
+    GTO_MIDSTAKES_PREFLOP_VALUES, GTO_POSTFLOP_AS_TITLES,
+    GTO_POSTFLOP_AS_VALUES, GTO_POSTFLOP_VS_TITLES,
     GTO_POSTFLOP_VS_VALUES,
     GTO_PREFLOP_KEYS
 } from "./appData";
@@ -54,20 +54,27 @@ function CSVInput() {
         }
     }
 
+    const onPostflopAsInputChange = (evt) => {
+        if (evt && evt.target.files && evt.target.files.length) {
+            Papa.parse(evt.target.files[0], {complete: (results, file)=> {
+                const data = results.data;
+                console.dir(data);
+            }});
+        }
+    }
+
     const postflopAsInputProps = {
         type: "file",
-        className: "csvButton"
+        onChange: onPostflopAsInputChange,
     };
 
     const postflopVersusInputProps = {
         type: "file",
-        className: "csvButton"
     };
 
     const preflopInputProps = {
         type: "file",
         onChange: onPreflopInputChange,
-        className: "csvButton"
     };
     const preflopTableProps = {
         playerValues,
@@ -78,13 +85,13 @@ function CSVInput() {
     const postflopAsTableProps = {
         playerValues,
         title: "Postflop as Preflop Aggressor",
-        gtoTitles: GTO_POSTFLOP_AS_VALUES,
+        gtoTitles: GTO_POSTFLOP_AS_TITLES,
         gtoValues: GTO_POSTFLOP_AS_VALUES
     }
     const postflopVsTableProps = {
         playerValues,
         title: "Postflop as Preflop Aggressor",
-        gtoTitles: GTO_POSTFLOP_VS_VALUES,
+        gtoTitles: GTO_POSTFLOP_VS_TITLES,
         gtoValues: GTO_POSTFLOP_VS_VALUES
     }
 
@@ -94,22 +101,22 @@ function CSVInput() {
                 <div className={'column'}>
                     <div className={'App-instructions'}>
                         <h2>Preflop</h2>
-                        <ol>
-                            <li>Create a report with the stats below</li>
-                            <li>Right click the stats, "Select All"</li>
-                            <li>Right click the stats, "Save As"</li>
-                            <li>Use the button below to compare</li>
-                        </ol>
                         <input {...preflopInputProps} />
                     </div>
                     <GTOTable {...preflopTableProps} />
                 </div>
                 <div className={'column'}>
-                    <input {...postflopAsInputProps} />
+                    <div className={'App-instructions'}>
+                        <h2>Postflop as PF Aggressor</h2>
+                        <input {...postflopAsInputProps} />
+                    </div>
                     <GTOTable {...postflopAsTableProps} />
                 </div>
                 <div className={'column'}>
-                    <input {...postflopVersusInputProps} />
+                    <div className={'App-instructions'}>
+                        <h2>Postflop vs. PF Aggressor</h2>
+                        <input {...postflopVersusInputProps} />
+                    </div>
                     <GTOTable {...postflopVsTableProps} />
                 </div>
             </div>

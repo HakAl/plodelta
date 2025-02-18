@@ -23,6 +23,44 @@ export const GTO_MIDSTAKES_PREFLOP_VALUES =[
     24
 ];
 
+export const GTO_POSTFLOP_AS_TITLES =[
+    "Flop Agg%",
+    "Turn Agg%",
+    "River Agg%",
+    "WTSD%",
+    "W$WSF",
+    "W$WSF Rating",
+    "Flop CBet Single Rsd Pot IP",
+    "Flop CBet-Fold IP Single Raised",
+    "Skip Flop CBet and Fold To Turn Bet IP",
+    "Flop CBet Single Rsd Pot vs 2 Opps Success%",
+    "Turn CBet Single Rsd Pot IP",
+    "Turn CBet-Fold IP Single Raised",
+    "Skip Turn CBet - Fold River SRP IP",
+    "River CBet Single Rsd Pot IP",
+    "Delayed Turn CBet IP SRP",
+    "Flop CBet Single Rsd Pot OOP",
+    "Flop CBet-Fold Single Rsd Pot",
+    "Skip Flop CBet and Check-Fold - Single Rsd Pot OOP",
+    "Skip Flop CBet and Check-Raise - Single Rsd Pot OOP",
+    "Turn CBet Single Rsd Pot OOP",
+    "Turn CBet-Fold OOP Single Raised",
+    "Skip Turn CBet and Check-Fold OOP Single Rsd Pot",
+    "River CBet Single Rsd Pot OOP",
+    "Skip River CBet and Check-Fold OOP Single Rsd Pot",
+    "Flop CBet 3BetPot IP",
+    "Flop CBet-Fold IP 3Bet Pot",
+    "Flop CBet 3BetPot OOP",
+    "Skip Flop CBet and Check-Fold - 3Bet Pot OOP",
+    "Flop CBet-Fold 3BetPot",
+    "Skip CBet and Fold 3Bet+ Pot",
+    "Skip Flop CBet and Check-Raise - 3Bet Pot OOP",
+    "Turn CBet 3BetPot IP",
+    "Skip Turn CBet - Fold River 3Bet+ Pot IP",
+    "Turn CBet 3BetPot OOP",
+    "Skip Turn CBet - Check Fold 3Bet+ Pot OOP",
+];
+
 export const GTO_POSTFLOP_AS_VALUES =[
     34,
     32,
@@ -59,6 +97,28 @@ export const GTO_POSTFLOP_AS_VALUES =[
     50,
     45,
     50
+];
+
+export const GTO_POSTFLOP_VS_TITLES =[
+    "Flop Fold vs CBet Rsd IP",
+    "Flop Raise vs CBet Rsd IP",
+    "Bet vs Missed CBet IP SRP ",
+    "Turn Fold vs CBet Rsd IP",
+    "River Fold vs CBet Rsd IP",
+    "Flop Donk Bet SRP",
+    "Flop Donk Bet-Fold",
+    "Flop Check-Fold vs CBet Raised OOP",
+    "Flop Check-Raise vs CBet Raised OOP",
+    "Turn Bet vs Missed Flop CBet OOP",
+    "Turn Check-Fold vs CBet Raised OOP",
+    "Turn Check-Fold OOP to Delayed CBet SRP",
+    "River Check-Fold vs CBet Raised OOP",
+    "Flop Fold vs CBet 3Bet IP",
+    "Flop Raise vs CBet 3Bet IP",
+    "Flop Bet vs Missed CBet 3Bet Pot",
+    "Flop Check-Fold vs CBet 3Bet OOP",
+    "Flop Check-Raise - 3Bet Pot OOP",
+    "Turn Bet vs Missed CBet (Duplicate - Beta only)"
 ];
 
 export const GTO_POSTFLOP_VS_VALUES =[
