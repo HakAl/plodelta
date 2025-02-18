@@ -2,14 +2,45 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.App-instructions {
+  background-color: #282c34;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+  padding: 10px 15px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+  width: 31.33%;
+}
+
+/* Create three equal columns that floats next to each other */
+@media (max-width: 1199px) {
+  .column {
+    float: left;
+    width: 100%;
   }
 }
 
@@ -25,37 +56,14 @@
 .body {
   background-color: #282c34;
 }
-.App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .styled-table {
   border-collapse: collapse;
-  margin: 25px 0;
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  table-layout: auto;
+  width: 100%;
 }
 
 .styled-table thead tr {
@@ -69,7 +77,6 @@
   padding: 12px 15px;
 }
 
-
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
@@ -82,12 +89,12 @@
   border-bottom: 2px solid #009879;
 }
 
-
-
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
 }
+
+
 
 .input_container {
   border: 1px solid #e5e5e5;
@@ -98,7 +105,6 @@ input[type=file]::file-selector-button {
   color: #ffffff;
   text-align: center;
   border: 0px;
-  border-right: 1px solid #e5e5e5;
   padding: 10px 15px;
   margin-right: 20px;
   transition: .5s;
@@ -110,6 +116,7 @@ input[type=file]::file-selector-button:hover {
   border-right: 1px solid #e5e5e5;
 }
 
+
 .bad {
   background-color: #f99;
 }
@@ -117,6 +124,7 @@ input[type=file]::file-selector-button:hover {
 .good {
   background-color: #9f9;
 }
+
 .link {
   color: #9f9;
 }

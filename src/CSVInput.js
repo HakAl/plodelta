@@ -1,6 +1,11 @@
 import {Fragment, useState} from "react";
 import Papa from "papaparse";
-import {GTO_MIDSTAKES_PREFLOP_VALUES, GTO_PREFLOP_KEYS} from "./appData";
+import {
+    GTO_MIDSTAKES_PREFLOP_VALUES,
+    GTO_POSTFLOP_AS_VALUES,
+    GTO_POSTFLOP_VS_VALUES,
+    GTO_PREFLOP_KEYS
+} from "./appData";
 import GTOTable from "./GTOTable";
 
 function CSVInput() {
@@ -8,7 +13,7 @@ function CSVInput() {
 
     //Callback to pass to Papaparse
     const complete = (results, file) => {
-        let data = results.data;
+        const data = results.data;
 
         if (data && data.length > 1) {
             //hm3 column titles
@@ -43,27 +48,71 @@ function CSVInput() {
         }
     }
 
-    const onCSVInputChange = (evt) => {
+    const onPreflopInputChange = (evt) => {
         if (evt && evt.target.files && evt.target.files.length) {
             Papa.parse(evt.target.files[0], {complete});
         }
     }
 
-    const inputProps = {
+    const postflopAsInputProps = {
         type: "file",
-        onChange: onCSVInputChange,
+        className: "csvButton"
+    };
+
+    const postflopVersusInputProps = {
+        type: "file",
+        className: "csvButton"
+    };
+
+    const preflopInputProps = {
+        type: "file",
+        onChange: onPreflopInputChange,
         className: "csvButton"
     };
     const preflopTableProps = {
         playerValues,
-        title: "Preflop Statistics",
+        title: "Preflop",
+        gtoTitles: GTO_PREFLOP_KEYS,
         gtoValues: GTO_MIDSTAKES_PREFLOP_VALUES
+    }
+    const postflopAsTableProps = {
+        playerValues,
+        title: "Postflop as Preflop Aggressor",
+        gtoTitles: GTO_POSTFLOP_AS_VALUES,
+        gtoValues: GTO_POSTFLOP_AS_VALUES
+    }
+    const postflopVsTableProps = {
+        playerValues,
+        title: "Postflop as Preflop Aggressor",
+        gtoTitles: GTO_POSTFLOP_VS_VALUES,
+        gtoValues: GTO_POSTFLOP_VS_VALUES
     }
 
     return (
         <Fragment>
-            <input {...inputProps} />
-            <GTOTable {...preflopTableProps} />
+            <div className={'row'}>
+                <div className={'column'}>
+                    <div className={'App-instructions'}>
+                        <h2>Preflop</h2>
+                        <ol>
+                            <li>Create a report with the stats below</li>
+                            <li>Right click the stats, "Select All"</li>
+                            <li>Right click the stats, "Save As"</li>
+                            <li>Use the button below to compare</li>
+                        </ol>
+                        <input {...preflopInputProps} />
+                    </div>
+                    <GTOTable {...preflopTableProps} />
+                </div>
+                <div className={'column'}>
+                    <input {...postflopAsInputProps} />
+                    <GTOTable {...postflopAsTableProps} />
+                </div>
+                <div className={'column'}>
+                    <input {...postflopVersusInputProps} />
+                    <GTOTable {...postflopVsTableProps} />
+                </div>
+            </div>
         </Fragment>
     );
 }
