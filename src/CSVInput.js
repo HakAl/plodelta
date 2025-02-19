@@ -1,6 +1,7 @@
 import {Fragment, useState} from "react";
 import Papa from "papaparse";
 import {
+    GTO_KEYS,
     GTO_MIDSTAKES_PREFLOP_VALUES, GTO_POSTFLOP_AS_TITLES,
     GTO_POSTFLOP_AS_VALUES, GTO_POSTFLOP_VS_TITLES,
     GTO_POSTFLOP_VS_VALUES,
@@ -21,7 +22,7 @@ function CSVInput() {
 
             //only take from allowlist
             let valuesToDelete = [];
-            GTO_PREFLOP_KEYS.map((validTitle, i) => {
+            GTO_KEYS.map((validTitle, i) => {
                 titles = titles.filter(title => title !== validTitle);
             })
 
@@ -54,25 +55,8 @@ function CSVInput() {
         }
     }
 
-    const onPostflopAsInputChange = (evt) => {
-        if (evt && evt.target.files && evt.target.files.length) {
-            Papa.parse(evt.target.files[0], {complete: (results, file)=> {
-                const data = results.data;
-                console.dir(data);
-            }});
-        }
-    }
 
-    const postflopAsInputProps = {
-        type: "file",
-        onChange: onPostflopAsInputChange,
-    };
-
-    const postflopVersusInputProps = {
-        type: "file",
-    };
-
-    const preflopInputProps = {
+    const reportInputProps = {
         type: "file",
         onChange: onPreflopInputChange,
     };
@@ -98,24 +82,24 @@ function CSVInput() {
     return (
         <Fragment>
             <div className={'row'}>
+                <div className={'input_container'}>
+                    <input {...reportInputProps} />
+                </div>
                 <div className={'column'}>
                     <div className={'App-instructions'}>
                         <h2>Preflop</h2>
-                        <input {...preflopInputProps} />
                     </div>
                     <GTOTable {...preflopTableProps} />
                 </div>
                 <div className={'column'}>
                     <div className={'App-instructions'}>
                         <h2>Postflop as PF Aggressor</h2>
-                        <input {...postflopAsInputProps} />
                     </div>
                     <GTOTable {...postflopAsTableProps} />
                 </div>
                 <div className={'column'}>
                     <div className={'App-instructions'}>
                         <h2>Postflop vs. PF Aggressor</h2>
-                        <input {...postflopVersusInputProps} />
                     </div>
                     <GTOTable {...postflopVsTableProps} />
                 </div>

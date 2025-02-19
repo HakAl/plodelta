@@ -21,6 +21,10 @@
   color: white;
   padding: 10px 15px;
 }
+input_container {
+  background-color: #282c34;
+  width: 100%;
+}
 
 .App-link {
   color: #61dafb;
@@ -33,7 +37,7 @@
 }
 .column {
   float: left;
-  width: 31.33%;
+  width: 33.33%;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -42,6 +46,15 @@
     float: left;
     width: 100%;
   }
+}
+
+.body-context {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + .5vmin);
+  color: white;
+  padding: 24px;
 }
 
 .body-instructions {
@@ -97,7 +110,9 @@
 
 
 .input_container {
-  border: 1px solid #e5e5e5;
+  /*border: 1px solid #e5e5e5;*/
+  background-color: #282c34;
+  color: #9f9;
 }
 
 input[type=file]::file-selector-button {
@@ -115,7 +130,6 @@ input[type=file]::file-selector-button:hover {
   border: 0px;
   border-right: 1px solid #e5e5e5;
 }
-
 
 .bad {
   background-color: #f99;
