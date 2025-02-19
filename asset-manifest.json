@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/plodelta/static/css/main.6b4beded.css",
-    "main.js": "/plodelta/static/js/main.69ac4b1d.js",
+    "main.css": "/plodelta/static/css/main.f6201249.css",
+    "main.js": "/plodelta/static/js/main.7e74a6b7.js",
+    "static/media/Home_SavedReports_StatsAnalyzer.report": "/plodelta/static/media/Home_SavedReports_StatsAnalyzer.d1c1e28db47ad5a70ee6.report",
     "index.html": "/plodelta/index.html",
-    "main.6b4beded.css.map": "/plodelta/static/css/main.6b4beded.css.map",
-    "main.69ac4b1d.js.map": "/plodelta/static/js/main.69ac4b1d.js.map"
+    "main.f6201249.css.map": "/plodelta/static/css/main.f6201249.css.map",
+    "main.7e74a6b7.js.map": "/plodelta/static/js/main.7e74a6b7.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b4beded.css",
-    "static/js/main.69ac4b1d.js"
+    "static/css/main.f6201249.css",
+    "static/js/main.7e74a6b7.js"
   ]
 }
