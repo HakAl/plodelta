@@ -21,6 +21,7 @@ function App() {
                             <a href={TheReport}
                                target="_blank"
                                rel="noreferrer"
+                               className={'link'}
                                download="Home_Saved Reports_GTOStatAnalyzer.report">Download this HM3 report file.</a></li>
                         <li>Locate the HM3 install directory. EG: "C:\Users\YOUR_NAME\AppData\Roaming\Max Value Software\Holdem Manager\3.0\"</li>
                         <li>Paste the downloaded file into the saved reports directory: EG: C:\Users\YOUR_NAME\AppData\Roaming\Max Value Software\Holdem Manager\3.0\Reports\Saved\</li>
