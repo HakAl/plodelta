@@ -5,9 +5,7 @@ const isTenPercentOff = (gto, delta) => {
 }
 
 function GTOTable({title, gtoTitles, gtoValues, playerValues}) {
-
     const hasPlayerValues = playerValues && playerValues.length > 0;
-
     return (
         <Fragment>
             <table className="styled-table">
