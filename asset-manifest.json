@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/plodelta/static/css/main.f6201249.css",
-    "main.js": "/plodelta/static/js/main.7e74a6b7.js",
-    "static/media/Home_SavedReports_StatsAnalyzer.report": "/plodelta/static/media/Home_SavedReports_StatsAnalyzer.d1c1e28db47ad5a70ee6.report",
+    "main.css": "/plodelta/static/css/main.239334f0.css",
+    "main.js": "/plodelta/static/js/main.27b098c3.js",
+    "static/media/Home_Saved Reports_GTOStatAnalyzer.report": "/plodelta/static/media/Home_Saved Reports_GTOStatAnalyzer.1d4f528bd07b1b407a2b.report",
     "index.html": "/plodelta/index.html",
-    "main.f6201249.css.map": "/plodelta/static/css/main.f6201249.css.map",
-    "main.7e74a6b7.js.map": "/plodelta/static/js/main.7e74a6b7.js.map"
+    "main.239334f0.css.map": "/plodelta/static/css/main.239334f0.css.map",
+    "main.27b098c3.js.map": "/plodelta/static/js/main.27b098c3.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6201249.css",
-    "static/js/main.7e74a6b7.js"
+    "static/css/main.239334f0.css",
+    "static/js/main.27b098c3.js"
   ]
 }
