@@ -73,6 +73,11 @@ input_container {
   font-family: sans-serif;
   table-layout: auto;
   width: 100%;
+  tfoot {
+    background-color: #009879;
+    color: #ffffff;
+    font-weight: bold;
+  }
 }
 
 .styled-table thead tr {

@@ -11,3 +11,4 @@ It shows where you're more than 10% off with colors!
 - Averages, summaries
 - user GTO stat input edit inline / file upload
 - csv output download
+- investigate DH integration

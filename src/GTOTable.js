@@ -4,7 +4,7 @@ const isTenPercentOff = (gto, delta) => {
     return  Math.abs(((delta / gto) * 100)).toFixed() >= 10;
 }
 
-function GTOTable({title, gtoTitles, gtoValues, playerValues}) {
+function GTOTable({title, gtoTitles, gtoValues, playerValues, playerDeltas, average}) {
     const hasPlayerValues = playerValues && playerValues.length > 0;
     return (
         <Fragment>
@@ -14,7 +14,7 @@ function GTOTable({title, gtoTitles, gtoValues, playerValues}) {
                 {gtoTitles.map((title, i) => {
                     let playerValueClassName = '';
                     if (hasPlayerValues) {
-                        playerValueClassName = isTenPercentOff(gtoValues[i], (playerValues[i] - gtoValues[i]).toFixed(1))
+                        playerValueClassName = isTenPercentOff(gtoValues[i], (playerValues[i] - gtoValues[i]).toFixed(2))
                             ? 'bad' : 'good';
                     }
                         return <tr key={i}>
@@ -22,12 +22,13 @@ function GTOTable({title, gtoTitles, gtoValues, playerValues}) {
                             <td>{gtoValues[i]}</td>
                             <td >{ hasPlayerValues ? playerValues[i] : '-' }</td>
                             <td className={playerValueClassName}>
-                                { hasPlayerValues ? (playerValues[i] - gtoValues[i]).toFixed(1) : '-'}
+                                { playerDeltas ? playerDeltas[i] : '-'}
                             </td>
                         </tr>;
                     }
                 )}
                 </tbody>
+                <tfoot><tr><td>Average Deviation</td><td></td><td></td><td>{average}</td></tr></tfoot>
             </table>
         </Fragment>
     );
