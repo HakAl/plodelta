@@ -9,3 +9,5 @@ It shows where you're more than 10% off with colors!
 - How do PF ranges differ based on stake / rake structure?
 - Additional commentary on analysis
 - Averages, summaries
+- user GTO stat input edit inline / file upload
+- csv output download

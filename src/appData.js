@@ -87,7 +87,6 @@ export const GTO_POSTFLOP_AS_VALUES = [
     55,
     60,
     40,
-    45,
     70,
     30,
     40,
