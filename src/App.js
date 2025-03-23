@@ -1,11 +1,11 @@
 import './App.css';
-import CSVInput from "./CSVInput";
+import HM3Report from "./HM3Report";
 import Instructions from "./Instructions";
 import {useState} from "react";
 import GTOSelect from "./GTOSelect";
 import {REPORT_DEFAULT} from "./appData";
 
-function App() {
+function App({reportSelect = false}) {
     const [report, setReport] = useState(REPORT_DEFAULT);
 
     const onReportChange = (event) => {
@@ -26,8 +26,8 @@ function App() {
                 </div>
             </section>
             <section>
-                <GTOSelect onReportChange={onReportChange} />
-                <CSVInput />
+                {reportSelect && <GTOSelect onReportChange={onReportChange} />}
+                <HM3Report />
             </section>
 
             <p className={'body-context'}>

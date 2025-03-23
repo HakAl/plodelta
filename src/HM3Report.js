@@ -11,7 +11,7 @@ import {
 import GTOTable from "./GTOTable";
 import GTOSelect from "./GTOSelect";
 
-function CSVInput() {
+function HM3Report() {
     const [preflopValues, setPreflopValues] = useState(null);
     const [postflopAsValues, setPostflopAsValues] = useState(null);
     const [postflopVsValues, setPostflopVsValues] = useState(null);
@@ -72,7 +72,7 @@ function CSVInput() {
             let postflopVsDeltas = [];
             let postflopVsSum = 0;
             for (let i = 0; i < GTO_POSTFLOP_VS_VALUES.length; i++) {
-                let result = Math.abs((postflopVsValues[i] - GTO_POSTFLOP_VS_VALUES[i]));
+                let result = Math.abs(postflopVsValues[i] - GTO_POSTFLOP_VS_VALUES[i]);
                 postflopVsSum += result;
                 postflopVsDeltas.push(result.toFixed(2));
             }
@@ -96,7 +96,7 @@ function CSVInput() {
         average: preflopAverage,
         title: "Preflop",
         gtoTitles: GTO_PREFLOP_KEYS,
-        gtoValues: GTO_MIDSTAKES_PREFLOP_VALUES
+        gtoValues: GTO_MIDSTAKES_PREFLOP_VALUES,
     }
     const postflopAsTableProps = {
         playerValues: postflopAsValues,
@@ -104,7 +104,7 @@ function CSVInput() {
         average: postflopAsAverage,
         title: "Postflop as Aggressor",
         gtoTitles: GTO_POSTFLOP_AS_TITLES,
-        gtoValues: GTO_POSTFLOP_AS_VALUES
+        gtoValues: GTO_POSTFLOP_AS_VALUES,
     }
     const postflopVsTableProps = {
         playerValues: postflopVsValues,
@@ -112,7 +112,7 @@ function CSVInput() {
         average: postflopVsAverage,
         title: "Postflop VS Aggressor",
         gtoTitles: GTO_POSTFLOP_VS_TITLES,
-        gtoValues: GTO_POSTFLOP_VS_VALUES
+        gtoValues: GTO_POSTFLOP_VS_VALUES,
     }
 
     return (
@@ -135,4 +135,4 @@ function CSVInput() {
     );
 }
 
-export default CSVInput;
+export default HM3Report;
