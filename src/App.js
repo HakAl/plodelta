@@ -3,9 +3,16 @@ import CSVInput from "./CSVInput";
 import Instructions from "./Instructions";
 import {useState} from "react";
 import GTOSelect from "./GTOSelect";
+import {REPORT_DEFAULT} from "./appData";
 
 function App() {
-    const [report, setReport] = useState(null);
+    const [report, setReport] = useState(REPORT_DEFAULT);
+
+    const onReportChange = (event) => {
+        if (event && event.target && event.target.value) {
+            setReport(event.target.value);
+        }
+    }
 
     return (
         <div className="App">
@@ -15,12 +22,12 @@ function App() {
             <section>
                 <div className={'body-context'}>
                     <h2>Compare your statistics to a standard set with <a href={'https://www.holdemmanager.com/hm3/download.php'} rel="noreferrer"className={'link'} target={'_blank'}>Holdem Manager 3</a></h2>
-                   <Instructions/>
+                   <Instructions selectedReport={report}/>
                 </div>
             </section>
             <section>
-                <GTOSelect />
-                <CSVInput/>
+                <GTOSelect onReportChange={onReportChange} />
+                <CSVInput />
             </section>
 
             <p className={'body-context'}>

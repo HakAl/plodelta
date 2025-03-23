@@ -1,10 +1,10 @@
 import {REPORT_VALUES} from "./appData";
 
-function GTOSelect() {
+function GTOSelect({onReportChange}) {
     return <div className={'input_container'}>
         <label htmlFor="gto-select">Choose GTO Standard:</label>
-        <select name="reports" id="reports_select">
-            {REPORT_VALUES.map((report) => <option value={report.value}>{report.display}</option>)}
+        <select name="reports" id="reports_select" onChange={(event) => onReportChange(event)}>
+            {REPORT_VALUES.map((report) => <option key={report.value} value={report.value}>{report.display}</option>)}
         </select>
     </div>
 }

@@ -1,7 +1,8 @@
 import {Fragment} from "react";
 import TheReport from "./Home_Saved Reports_GTOStatAnalyzer.report";
 
-function Instructions() {
+function Instructions({selectedReport}) {
+    const reportToDownload = TheReport;
     return <Fragment>
         <h3>How To</h3>
         <p>Holdem Manager 3 (HM3) has a reports tool that can be used to export statistics, BUT
@@ -10,7 +11,7 @@ function Instructions() {
         <ol>
             <li>Close HM3.</li>
             <li>
-                <a href={TheReport}
+                <a href={reportToDownload}
                    target="_blank"
                    rel="noreferrer"
                    className={'link'}
