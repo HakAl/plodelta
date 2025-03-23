@@ -319,3 +319,14 @@ export const GTO_KEYS = [
     "Flop Check-Raise - 3Bet Pot OOP",
     "Turn Bet vs Missed CBet (Duplicate - Beta only)"
 ];
+
+export const REPORT_DEFAULT = 'default';
+export const REPORT_COACHING= 'coach';
+export const REPORT_MID = 'mid';
+export const REPORT_CRUSHERS = 'crusher';
+export const REPORT_VALUES = [
+    {value: REPORT_DEFAULT, display: "Choose a Report"},
+    {value: REPORT_COACHING, display: "Coaching"},
+    {value: REPORT_MID, display: "Mid Stakes 2022"},
+    {value: REPORT_CRUSHERS, display: "Crushers 2023"},
+];

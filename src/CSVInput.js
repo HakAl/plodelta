@@ -9,6 +9,7 @@ import {
     GTO_PREFLOP_KEYS, SNOWFLAKE_INDEX
 } from "./appData";
 import GTOTable from "./GTOTable";
+import GTOSelect from "./GTOSelect";
 
 function CSVInput() {
     const [preflopValues, setPreflopValues] = useState(null);
