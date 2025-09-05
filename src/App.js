@@ -130,7 +130,7 @@ function App({reportSelect = false}) {
                 {reportSelect && <GTOSelect onReportChange={onReportChange} />}
 
                 <div className={'row'}>
-                    <HM3Report onComplete={complete}/>
+                    <HM3Report complete={complete}/>
                     { preflopValues && <GTOTable preflopTableProps={preflopTableProps} postflopAsTableProps={postflopAsTableProps} postflopVsTableProps={postflopVsTableProps} /> }
                 </div>
             </section>

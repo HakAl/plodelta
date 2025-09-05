@@ -1,10 +1,10 @@
 import {Fragment} from "react";
 import Papa from "papaparse";
 
-function HM3Report({onComplete}) {
+function HM3Report({complete}) {
     const onPreflopInputChange = (evt) => {
         if (evt && evt.target.files && evt.target.files.length) {
-            Papa.parse(evt.target.files[0], {onComplete});
+            Papa.parse(evt.target.files[0], {complete});
         }
     }
     const reportInputProps = {
