@@ -24,3 +24,7 @@ yarn-error.log*
 
 /.idea
 .idea
+
+.ssh
+/ssh
+local.config
