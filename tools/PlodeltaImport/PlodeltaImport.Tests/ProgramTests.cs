@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿//  Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
+using Xunit;
 using Moq;
 using System.Threading.Tasks;
 

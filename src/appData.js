@@ -1,3 +1,4 @@
+// Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
 export const SNOWFLAKE_INDEX = 27;
 export const GTO_MIDSTAKES_PREFLOP_VALUES = [
     27,

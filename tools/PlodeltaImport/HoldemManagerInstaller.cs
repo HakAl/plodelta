@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿//  Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using PlodeltaImport.Logging;

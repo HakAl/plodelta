@@ -1,4 +1,5 @@
-﻿namespace PlodeltaImport.Reporting
+﻿//  Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
+namespace PlodeltaImport.Reporting
 {
     internal sealed class ConsoleProgressReporter : IProgressReporter
     {

@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
 
 # dependencies
 /node_modules
@@ -29,7 +29,6 @@ yarn-error.log*
 /ssh
 local.config
 
-
 # Windows helper build artefacts
 tools/PlodeltaImport/bin/
 tools/PlodeltaImport/obj/
@@ -42,3 +41,10 @@ tools/PlodeltaImport/publish/          # local publish folder
 tools/PlodeltaImport/*.exe             # never commit the EXE itself
 tools/PlodeltaImport/*.msi
 tools/PlodeltaImport/*.pdb
+
+src-commercial
+.src-commercial
+/.src-commercial
+src-commercial/*
+.src-commercial/*
+/.src-commercial/*

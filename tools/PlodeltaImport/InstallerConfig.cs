@@ -1,4 +1,5 @@
-﻿namespace PlodeltaImport;
+﻿//  Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
+namespace PlodeltaImport;
 
 public class InstallerConfig
 {

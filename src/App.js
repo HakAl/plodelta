@@ -1,3 +1,4 @@
+// Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
 import './App.css';
 import HM3Report from "./HM3Report";
 import Instructions from "./Instructions";

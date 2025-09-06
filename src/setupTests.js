@@ -1,3 +1,4 @@
+// Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
 // jest-dom adds custom jest matchers for asserting on DOM nodes.
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)

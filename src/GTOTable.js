@@ -1,3 +1,4 @@
+// Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
 import {Fragment} from "react";
 import GTOColumn from "./GTOColumn";
 

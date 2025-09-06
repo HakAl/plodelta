@@ -1,4 +1,5 @@
-﻿namespace PlodeltaImport.Logging
+﻿//  Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
+ namespace PlodeltaImport.Logging
 {
     internal sealed class ConsoleLogger : ILogger
     {

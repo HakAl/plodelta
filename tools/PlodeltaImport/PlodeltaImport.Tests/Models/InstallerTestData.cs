@@ -1,3 +1,4 @@
+//  Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
 using System.Collections.Generic;
 
 namespace PlodeltaImport.PlodeltaImport.Tests.Models
