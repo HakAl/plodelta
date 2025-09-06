@@ -49,15 +49,6 @@ npm run test:coverage  # full coverage report
 ```
 
 ## Roadmap
-### TODOS
-- How do PF ranges differ based on stake / rake structure?
-- Additional commentary on analysis
-- summaries
-- user stat input file upload
-- csv output download
-- investigate DH integration
-- investigate data viz lib like https://www.npmjs.com/package/d3
-- general HM3 report gen? HM3 interface sucks
 
 
 ## License
