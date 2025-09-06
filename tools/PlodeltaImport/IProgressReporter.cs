@@ -1,6 +1,9 @@
-﻿namespace PlodeltaImport;
-
-public interface IProgressReporter
+﻿namespace PlodeltaImport
 {
-        void Report(string message);
+    public interface IProgressReporter
+    {
+        void ReportProgress(int percentage, string status);
+        void ReportComplete();
+        void ReportError(string message);
+    }
 }

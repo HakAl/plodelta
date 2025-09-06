@@ -66,14 +66,14 @@ namespace PloDeltaImport
 
     
     // at bottom of Program.cs
-    internal sealed class ConsoleLoggerAdapter : HoldemManagerInstaller.ILogger
+    internal sealed class ConsoleLoggerAdapter : ILogger
     {
         public void LogInfo(string message) => Console.WriteLine($"[INFO] {DateTime.Now:HH:mm:ss} {message}");
         public void LogWarning(string message) => Console.WriteLine($"[WARN] {DateTime.Now:HH:mm:ss} {message}");
         public void LogError(string message, Exception ex = null) =>
             Console.WriteLine($"[ERROR] {DateTime.Now:HH:mm:ss} {message}{(ex != null ? $": {ex.Message}" : "")}");
     }
-    internal sealed class ConsoleProgressAdapter  : HoldemManagerInstaller.IProgressReporter
+    internal sealed class ConsoleProgressAdapter  : IProgressReporter
     {
         public void ReportProgress(int percentage, string status) => Console.WriteLine($"[{percentage}%] {status}");
         public void ReportComplete() => Console.WriteLine("Installation completed successfully!");
