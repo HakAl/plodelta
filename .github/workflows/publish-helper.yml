@@ -1,0 +1,40 @@
+name: Build & Release Helper
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'tools/PlodeltaImport/**' ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '6.0.x' }
+
+      - name: Build & publish
+        run: |
+          cd tools/PlodeltaImport
+          dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
+
+      - name: Upload artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PlodeltaImport-win-x64
+          path: tools/PlodeltaImport/bin/Release/net6.0-windows/win-x64/publish/PlodeltaImport.exe
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: helper-${{ github.run_number }}
+          name:  Windows Helper ${{ github.run_number }}
+          body:  Self-contained EXE for Windows x64
+          files:  tools/PlodeltaImport/bin/Release/net6.0-windows/win-x64/publish/PlodeltaImport.exe
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

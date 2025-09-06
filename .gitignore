@@ -33,6 +33,8 @@ local.config
 # Windows helper build artefacts
 tools/PlodeltaImport/bin/
 tools/PlodeltaImport/obj/
+tools/PlodeltaImport/PlodeltaImport.Tests/bin/
+tools/PlodeltaImport/PlodeltaImport.Tests/obj/
 tools/PlodeltaImport/*.user
 tools/PlodeltaImport/*.suo
 tools/PlodeltaImport/.vs/

@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -8,7 +7,6 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace PloDeltaImport
 {
