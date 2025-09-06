@@ -28,3 +28,15 @@ yarn-error.log*
 .ssh
 /ssh
 local.config
+
+
+# Windows helper build artefacts
+tools/PlodeltaImport/bin/
+tools/PlodeltaImport/obj/
+tools/PlodeltaImport/*.user
+tools/PlodeltaImport/*.suo
+tools/PlodeltaImport/.vs/
+tools/PlodeltaImport/publish/          # local publish folder
+tools/PlodeltaImport/*.exe             # never commit the EXE itself
+tools/PlodeltaImport/*.msi
+tools/PlodeltaImport/*.pdb
