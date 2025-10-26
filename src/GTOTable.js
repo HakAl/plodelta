@@ -1,19 +1,58 @@
-// Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
-import {Fragment} from "react";
+// GTOTable.js - Updated with tabs
+import { useState } from "react";
 import GTOColumn from "./GTOColumn";
 
-function GTOTable({preflopTableProps, postflopAsTableProps, postflopVsTableProps}) {
-    return <Fragment>
-        <div className={'column'}>
-            <GTOColumn {...preflopTableProps} />
+function GTOTable({ preflopTableProps, postflopAsTableProps, postflopVsTableProps }) {
+    const [activeTab, setActiveTab] = useState('preflop');
+
+    return (
+        <div className="gto-table-container">
+            <ul className="nav nav-tabs gto-tabs">
+                <li className="nav-item">
+                    <button
+                        className={`nav-link ${activeTab === 'preflop' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('preflop')}
+                    >
+                        Preflop
+                    </button>
+                </li>
+                <li className="nav-item">
+                    <button
+                        className={`nav-link ${activeTab === 'postflopAs' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('postflopAs')}
+                    >
+                        Postflop as Aggressor
+                    </button>
+                </li>
+                <li className="nav-item">
+                    <button
+                        className={`nav-link ${activeTab === 'postflopVs' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('postflopVs')}
+                    >
+                        Postflop VS Aggressor
+                    </button>
+                </li>
+            </ul>
+
+            <div className="tab-content">
+                {activeTab === 'preflop' && (
+                    <div className="tab-pane active">
+                        <GTOColumn {...preflopTableProps} />
+                    </div>
+                )}
+                {activeTab === 'postflopAs' && (
+                    <div className="tab-pane active">
+                        <GTOColumn {...postflopAsTableProps} />
+                    </div>
+                )}
+                {activeTab === 'postflopVs' && (
+                    <div className="tab-pane active">
+                        <GTOColumn {...postflopVsTableProps} />
+                    </div>
+                )}
+            </div>
         </div>
-        <div className={'column'}>
-            <GTOColumn {...postflopAsTableProps} />
-        </div>
-        <div className={'column'}>
-            <GTOColumn {...postflopVsTableProps} />
-        </div>
-    </Fragment>
+    );
 }
 
 export default GTOTable;

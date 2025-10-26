@@ -4,22 +4,31 @@ import TheReport from "./Home_Saved Reports_GTOStatAnalyzer.report";
 
 function Instructions({selectedReport}) {
     const reportToDownload = TheReport;
-    return <Fragment>
-        <h3>How To</h3>
-        <p>This guide assumes you have saved hand histories imported into Holdem Manager 3 (HM3).</p>
+    return (
+        <div className="body-instructions">
+            <h2 className="mb-4">Analyze your poker stats with <a href="https://www.holdemmanager.com/hm3/download.php" rel="noreferrer" className="link" target="_blank">Holdem Manager 3</a></h2>
 
-        <a href="/plodelta/releases/latest/download/PlodeltaImport-win-x64.exe" download>
-            Download Windows helper
-        </a>
+            <h3 className="mb-3">Getting Started</h3>
+            <p>Make sure you have hand histories imported into Holdem Manager 3 before beginning.</p>
 
-        <ol>
-            <li>Open HM3.</li>
-            <li>In the reports section, select the new GTOStatAnalyzer report.</li>
-            <li>Right click the stats, "Select All".</li>
-            <li>Right click the stats, "Save As".</li>
-            <li>Use the button below to upload the saved file.</li>
-        </ol>
-    </Fragment>
+            <ol>
+                <li>
+                    <a
+                        href="/plodelta/releases/latest/download/PlodeltaImport-win-x64.exe"
+                        download
+                        className="btn btn-link link p-0"
+                    >
+                        Download the HM3 report template
+                    </a>
+                </li>
+                <li>Open Holdem Manager 3</li>
+                <li>Go to the Reports section and select the GTOStatAnalyzer report</li>
+                <li>Right-click the stats table and choose "Select All"</li>
+                <li>Right-click again and choose "Save As" to export your data</li>
+                <li>Upload the saved file using the button below</li>
+            </ol>
+        </div>
+    );
 }
 
 export default Instructions;

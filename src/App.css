@@ -1,95 +1,218 @@
 /* Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.*/
+
+/* Make the app fill viewport height with flexbox for sticky footer */
 .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #282c34;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #1a1d23;
+  padding: 1.5rem;
+  text-align: center;
   color: white;
+  border-bottom: 3px solid #009879;
 }
 
-.App-instructions {
-  background-color: #282c34;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 1vmin);
-  color: white;
-  padding: 10px 15px;
-}
-input_container {
-  background-color: #282c34;
-  width: 100%;
+.App-header h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.column {
-  float: left;
-  width: 33.33%;
-}
-
-/* Create three equal columns that floats next to each other */
-@media (max-width: 1199px) {
-  .column {
-    float: left;
-    width: 100%;
-  }
+/* Main content area should grow to push footer down */
+.App > section {
+  flex: 1;
 }
 
 .body-context {
   background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + .7vmin);
   color: white;
-  padding: 24px;
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.body-context h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .body-instructions {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 1vmin);
+  background-color: #343840;
   color: white;
-}
-.body {
-  background-color: #282c34;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 0;
 }
 
+.body-instructions h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #009879;
+}
+
+.body-instructions h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.body-instructions ol {
+  margin-bottom: 0;
+  padding-left: 1.5rem;
+}
+
+.body-instructions li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.body-instructions li a {
+  display: inline;
+  vertical-align: baseline;
+}
+
+.body-instructions p {
+  margin-bottom: 1rem;
+}
+
+.instructions-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #009879, transparent);
+  margin: 2rem 0 1.5rem;
+}
+
+/* Upload Card */
+.upload-card {
+  background-color: #343840;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.upload-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.upload-icon {
+  width: 64px;
+  height: 64px;
+  color: #009879;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.upload-header h3 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.upload-description {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* File upload section */
+.input_container {
+  background-color: transparent;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px dashed #555;
+  transition: border-color 0.3s;
+}
+
+.input_container:hover {
+  border-color: #009879;
+}
+
+input[type=file] {
+  display: none;
+}
+
+.file-upload-label {
+  background-color: #009879;
+  color: #ffffff;
+  padding: 0.875rem 2.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 152, 121, 0.3);
+}
+
+.file-upload-label:hover {
+  background-color: #00b894;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 152, 121, 0.4);
+}
+
+.file-upload-label:active {
+  transform: translateY(0);
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.file-status {
+  color: #888;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 24px;
+}
+
+.file-status.file-selected {
+  color: #00b894;
+  font-weight: 500;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  color: #00b894;
+}
+
+/* Tables */
 .styled-table {
   border-collapse: collapse;
   font-size: 0.9em;
   font-family: sans-serif;
-  table-layout: auto;
   width: 100%;
-  tfoot {
-    background-color: #009879;
-    color: #ffffff;
-    font-weight: bold;
-  }
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .styled-table thead tr {
   background-color: #009879;
   color: #ffffff;
   text-align: center;
+  font-weight: bold;
 }
 
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
+  text-align: center;
 }
 
 .styled-table tbody tr {
@@ -97,52 +220,248 @@ input_container {
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:nth-of-type(odd) {
+  background-color: #ffffff;
 }
 
 .styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #009879;
 }
 
-.styled-table tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
-}
-
-.input_container {
-  background-color: #282c34;
-  color: #9f9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-}
-
-input[type=file]::file-selector-button {
+.styled-table tfoot {
   background-color: #009879;
   color: #ffffff;
+  font-weight: bold;
+}
+
+.styled-table tfoot td {
   text-align: center;
-  border: 0px;
-  padding: 10px 15px;
-  margin-right: 20px;
-  transition: .5s;
 }
 
-input[type=file]::file-selector-button:hover {
-  background-color: #eee;
-  border: 0px;
-  border-right: 1px solid #e5e5e5;
-}
-
+/* Color indicators */
 .bad {
-  background-color: #f99;
+  background-color: #ffebee !important;
+  color: #c62828;
 }
 
 .good {
-  background-color: #9f9;
+  background-color: #e8f5e9 !important;
+  color: #2e7d32;
 }
 
+/* Links */
 .link {
-  color: #9f9;
+  color: #00b894;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #00e5a0;
+  text-decoration: underline;
+}
+
+/* Footer */
+.app-footer {
+  background-color: #1a1d23;
+  color: white;
+  padding: 2rem 1.5rem;
+  margin-top: auto;
+  border-top: 3px solid #009879;
+}
+
+.app-footer p {
+  margin: 0;
+  text-align: center;
+}
+
+.app-footer a {
+  margin: 0 0.5rem;
+}
+
+/* Tabs for GTO Tables */
+.gto-table-container {
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.gto-tabs {
+  border-bottom: 2px solid #009879;
+  background-color: #282c34;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.gto-tabs .nav-item {
+  margin-bottom: 0;
+}
+
+.gto-tabs .nav-link {
+  background-color: transparent;
+  color: #aaa;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.gto-tabs .nav-link:hover {
+  color: #00b894;
+  border-bottom-color: #00b894;
+}
+
+.gto-tabs .nav-link.active {
+  color: #ffffff;
+  background-color: #343840;
+  border-bottom-color: #009879;
+}
+
+.tab-content {
+  background-color: #343840;
+  padding: 1.5rem;
+  border-radius: 0 0 8px 8px;
+}
+
+.tab-pane {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Column layout */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  padding: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .column {
+    float: left;
+    width: 33.33%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .column {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Add these styles to your App.css file */
+
+/* Instructions header with collapse button */
+.instructions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.instructions-header h2 {
+  margin-bottom: 0;
+  flex: 1;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.collapse-button {
+  background-color: #009879;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.collapse-button:hover {
+  background-color: #00b894;
+  transform: translateY(-2px);
+}
+
+.collapse-button:active {
+  transform: translateY(0);
+}
+
+.collapse-icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+/* Collapsed state */
+.body-instructions.collapsed {
+  padding: 0;
+  background-color: transparent;
+}
+
+.collapsed-header {
+  background-color: #343840;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.collapsed-header:hover {
+  background-color: #3d4149;
+  border-color: #009879;
+}
+
+.collapsed-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+  color: #00b894;
+  flex-shrink: 0;
+}
+
+.file-name {
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.expand-icon {
+  width: 24px;
+  height: 24px;
+  color: #009879;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.collapsed-header:hover .expand-icon {
+  transform: translateY(2px);
 }

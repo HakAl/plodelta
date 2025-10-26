@@ -44,16 +44,24 @@ function GTOColumn({title, gtoTitles, gtoValues, playerValues, playerDeltas, ave
                 </thead>
                 <tbody>
                 {gtoTitles.map((title, i) => {
+                        const playerValue = playerValues ? playerValues[i] : null;
+                        const playerDelta = playerDeltas ? playerDeltas[i] : null;
+
+                        // Check if value is null/undefined
+                        const isPlayerValueMissing = playerValue === null || playerValue === undefined;
+                        const isDeltaMissing = playerDelta === null || playerDelta === undefined;
+
                         let playerValueClassName = '';
-                        if (hasPlayerValues) {
-                            playerValueClassName = isTenPercentOff(gtoValues[i], (playerValues[i] - gtoValues[i]).toFixed(2))
+                        if (hasPlayerValues && !isPlayerValueMissing) {
+                            playerValueClassName = isTenPercentOff(gtoValues[i], (playerValue - gtoValues[i]).toFixed(2))
                                 ? 'bad' : 'good';
                         }
+
                         const hasUserEdit = typeof userEdits[i] !== 'undefined' && userEdits[i] !== undefined;
                         const updatedValue = hasUserEdit ? userEdits[i] : gtoValues[i];
                         let updatedDelta;
-                        if (playerDeltas) {
-                            updatedDelta = hasUserEdit ? Math.abs(userEdits[i] - playerValues[i]).toFixed(2) : playerDeltas[i]
+                        if (!isPlayerValueMissing && playerDelta !== null) {
+                            updatedDelta = hasUserEdit ? Math.abs(userEdits[i] - playerValue).toFixed(2) : playerDelta;
                         }
 
                         return <tr key={i}>
@@ -77,9 +85,9 @@ function GTOColumn({title, gtoTitles, gtoValues, playerValues, playerDeltas, ave
                                        className={'glyphicon glyphicon-pencil'}/>
                                 </td>
                             }
-                            <td>{hasPlayerValues ? playerValues[i] : '-'}</td>
+                            <td>{isPlayerValueMissing ? '—' : playerValue}</td>
                             <td className={playerValueClassName}>
-                                {playerDeltas ? updatedDelta : '-'}
+                                {isDeltaMissing ? '—' : updatedDelta}
                             </td>
                         </tr>;
                     }
@@ -90,7 +98,7 @@ function GTOColumn({title, gtoTitles, gtoValues, playerValues, playerDeltas, ave
                     <td>Average Deviation</td>
                     <td></td>
                     <td></td>
-                    <td>{average}</td>
+                    <td>{average === null || average === undefined ? '—' : average}</td>
                 </tr>
                 </tfoot>
             </table>

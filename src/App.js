@@ -1,7 +1,6 @@
 // Copyright (c) 2025 HakAl.  See LICENCES/MIT.txt for licence terms.
 import './App.css';
-import HM3Report from "./HM3Report";
-import Instructions from "./Instructions";
+import InstructionsWithUpload from "./InstructionsWithUpload";
 import {useState} from "react";
 import GTOSelect from "./GTOSelect";
 import {
@@ -36,7 +35,10 @@ function App({reportSelect = false}) {
             let count = 0;
             values = values.map(value => {
                 let result;
-                if (count !== SNOWFLAKE_INDEX) {
+                // Handle missing/invalid values
+                if (value === null || value === undefined || value === '' || isNaN(value)) {
+                    result = null;
+                } else if (count !== SNOWFLAKE_INDEX) {
                     result = (value * 100).toFixed(2);
                 } else {
                     result = value;
@@ -54,32 +56,50 @@ function App({reportSelect = false}) {
 
             let preflopDeltas = [];
             let preflopSum = 0;
+            let preflopValidCount = 0;
             for (let i = 0; i < GTO_MIDSTAKES_PREFLOP_VALUES.length; i++) {
-                let result = Math.abs((preflopValues[i] - GTO_MIDSTAKES_PREFLOP_VALUES[i]));
-                preflopDeltas.push(result.toFixed(2));
-                preflopSum += result;
+                if (preflopValues[i] === null) {
+                    preflopDeltas.push(null);
+                } else {
+                    let result = Math.abs((preflopValues[i] - GTO_MIDSTAKES_PREFLOP_VALUES[i]));
+                    preflopDeltas.push(result.toFixed(2));
+                    preflopSum += result;
+                    preflopValidCount++;
+                }
             }
-            setpreflopAverage((preflopSum / GTO_MIDSTAKES_PREFLOP_VALUES.length).toFixed(2))
+            setpreflopAverage(preflopValidCount > 0 ? (preflopSum / preflopValidCount).toFixed(2) : null);
             setPreflopDeltas(preflopDeltas);
 
             let postflopAsDeltas = [];
             let postflopAsSum = 0;
+            let postflopAsValidCount = 0;
             for (let i = 0; i < GTO_POSTFLOP_AS_VALUES.length; i++) {
-                let result = Math.abs((postflopAsValues[i] - GTO_POSTFLOP_AS_VALUES[i]));
-                postflopAsSum += result;
-                postflopAsDeltas.push(result.toFixed(2));
+                if (postflopAsValues[i] === null) {
+                    postflopAsDeltas.push(null);
+                } else {
+                    let result = Math.abs((postflopAsValues[i] - GTO_POSTFLOP_AS_VALUES[i]));
+                    postflopAsSum += result;
+                    postflopAsDeltas.push(result.toFixed(2));
+                    postflopAsValidCount++;
+                }
             }
-            setPostflopAsAverage((postflopAsSum / GTO_POSTFLOP_AS_VALUES.length).toFixed(2))
+            setPostflopAsAverage(postflopAsValidCount > 0 ? (postflopAsSum / postflopAsValidCount).toFixed(2) : null);
             setPostflopAsDeltas(postflopAsDeltas);
 
             let postflopVsDeltas = [];
             let postflopVsSum = 0;
+            let postflopVsValidCount = 0;
             for (let i = 0; i < GTO_POSTFLOP_VS_VALUES.length; i++) {
-                let result = Math.abs(postflopVsValues[i] - GTO_POSTFLOP_VS_VALUES[i]);
-                postflopVsSum += result;
-                postflopVsDeltas.push(result.toFixed(2));
+                if (postflopVsValues[i] === null) {
+                    postflopVsDeltas.push(null);
+                } else {
+                    let result = Math.abs(postflopVsValues[i] - GTO_POSTFLOP_VS_VALUES[i]);
+                    postflopVsSum += result;
+                    postflopVsDeltas.push(result.toFixed(2));
+                    postflopVsValidCount++;
+                }
             }
-            setPostflopVsAverage((postflopVsSum / GTO_POSTFLOP_VS_VALUES.length).toFixed(2));
+            setPostflopVsAverage(postflopVsValidCount > 0 ? (postflopVsSum / postflopVsValidCount).toFixed(2) : null);
             setPostflopVsDeltas(postflopVsDeltas);
         }
     }
@@ -121,25 +141,40 @@ function App({reportSelect = false}) {
             <header className="App-header">
                 <h1>GTO Coach</h1>
             </header>
-            <section>
-                <div className={'body-context'}>
-                    <h2>Analyze your GTO report with <a href={'https://www.holdemmanager.com/hm3/download.php'} rel="noreferrer"className={'link'} target={'_blank'}>Holdem Manager 3</a></h2>
-                   <Instructions selectedReport={report}/>
-                </div>
-            </section>
-            <section>
-                {reportSelect && <GTOSelect onReportChange={onReportChange} />}
 
-                <div className={'row'}>
-                    <HM3Report complete={complete}/>
-                    { preflopValues && <GTOTable preflopTableProps={preflopTableProps} postflopAsTableProps={postflopAsTableProps} postflopVsTableProps={postflopVsTableProps} /> }
+            <section>
+                <div className="container-fluid">
+                    <div className="body-context">
+                        <InstructionsWithUpload complete={complete}/>
+                    </div>
                 </div>
             </section>
 
-            <p className={'body-context'}>
-                Inspired by  <a href={'https://plomastermind.com'}  className={'link'} target={'_blank'} rel="noreferrer">PLO Mastermind.</a>
-                <a href={'https://plomastermind.com/lessons/5-0-analysing-your-stats-in-hem3-2/'} className={'link'} target={'_blank'} rel="noreferrer">See this course</a> and <a href={'https://docs.google.com/spreadsheets/d/1TkjSsPVaCfIKC-JjqfS46LrPDZ3aLJenYWHEjdjeryw/edit?gid=1371458119#gid=1371458119'} className={'link'} target={'_blank'} rel="noreferrer">this document</a>
-            </p>
+            <section>
+                <div className="container-fluid">
+                    {reportSelect && <GTOSelect onReportChange={onReportChange} />}
+
+                    {/*<HM3Report complete={complete}/>*/}
+
+                    {preflopValues && (
+                        <GTOTable
+                            preflopTableProps={preflopTableProps}
+                            postflopAsTableProps={postflopAsTableProps}
+                            postflopVsTableProps={postflopVsTableProps}
+                        />
+                    )}
+                </div>
+            </section>
+
+            <footer className="app-footer">
+                <p>
+                    Inspired by <a href="https://plomastermind.com" className="link" target="_blank" rel="noreferrer">PLO Mastermind</a>
+                    {' '}&mdash;{' '}
+                    <a href="https://plomastermind.com/lessons/5-0-analysing-your-stats-in-hem3-2/" className="link" target="_blank" rel="noreferrer">See this course</a>
+                    {' '}and{' '}
+                    <a href="https://docs.google.com/spreadsheets/d/1TkjSsPVaCfIKC-JjqfS46LrPDZ3aLJenYWHEjdjeryw/edit?gid=1371458119#gid=1371458119" className="link" target="_blank" rel="noreferrer">this document</a>
+                </p>
+            </footer>
         </div>
     );
 }
