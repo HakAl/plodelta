@@ -1,14 +1,13 @@
 {
   "files": {
-    "main.css": "/plodelta/static/css/main.a879284a.css",
-    "main.js": "/plodelta/static/js/main.f4c2ce9d.js",
-    "static/media/Home_Saved Reports_GTOStatAnalyzer.report": "/plodelta/static/media/Home_Saved Reports_GTOStatAnalyzer.1d4f528bd07b1b407a2b.report",
+    "main.css": "/plodelta/static/css/main.e4c18bb6.css",
+    "main.js": "/plodelta/static/js/main.0ae1e4fd.js",
     "index.html": "/plodelta/index.html",
-    "main.a879284a.css.map": "/plodelta/static/css/main.a879284a.css.map",
-    "main.f4c2ce9d.js.map": "/plodelta/static/js/main.f4c2ce9d.js.map"
+    "main.e4c18bb6.css.map": "/plodelta/static/css/main.e4c18bb6.css.map",
+    "main.0ae1e4fd.js.map": "/plodelta/static/js/main.0ae1e4fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.a879284a.css",
-    "static/js/main.f4c2ce9d.js"
+    "static/css/main.e4c18bb6.css",
+    "static/js/main.0ae1e4fd.js"
   ]
 }
